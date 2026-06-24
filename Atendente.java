@@ -7,7 +7,7 @@ public class Atendente extends Funcionario {
         Cliente c = new Cliente(nome, CPF, telefone);
         return c;
     }
-    public AnimalVacina cadastrarAnimalComVacina(String nome, int idade, Cliente dono, int idAnimal, float peso, String raca, Porte porte) {  // no main vai ter o if para decidir qual tipo que é
+    public AnimalVacina cadastrarAnimalComVacina(String nome, int idade, Cliente dono, int idAnimal, float peso, String raca, String porte) { 
         AnimalVacina av = new AnimalVacina(nome, idade, dono, idAnimal, peso, raca, porte);
         return av;
     }

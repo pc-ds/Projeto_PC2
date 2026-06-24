@@ -36,7 +36,7 @@ public class Gato extends AnimalVacina {
     }
 
     @Override
-    public Porte getPorte() {
+    public Object getPorte() {
         return super.getPorte();
     }
 
@@ -76,7 +76,7 @@ public class Gato extends AnimalVacina {
     }
 
     @Override
-    public void setPorte(Porte porte) {
+    public void setPorte(Object porte) {
         super.setPorte(porte);
     }
 

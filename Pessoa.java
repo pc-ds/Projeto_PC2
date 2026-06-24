@@ -11,7 +11,7 @@ public abstract class Pessoa  {
         return CPF;
     }
 
-    public String getNome() {
+    public String getName() {
         return nome;
     }
 
@@ -19,8 +19,8 @@ public abstract class Pessoa  {
         this.CPF = CPF;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.nome = name;
     }
     
     

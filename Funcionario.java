@@ -13,26 +13,5 @@ public  class  Funcionario extends Pessoa {
     public void setId(int id) {
         this.id = id;
     }
-
-    @Override
-    public void setCPF(String CPF) {
-        super.setCPF(CPF);
-    }
-
-    @Override
-    public void setNome(String nome) {
-        super.setNome(oame);
-    }
-
-    @Override
-    public String getCPF() {
-        return super.getCPF();
-    }
-
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-    
     
 }
