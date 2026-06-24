@@ -17,4 +17,40 @@ public class Veterinario extends Funcionario {
         c.setDiasInternacao() = dias;
     }
 
+    @Override
+    public void setCPF(String CPF) {
+        super.setCPF(CPF);
+    }
+
+    @Override
+    public void setId(int id) {
+        super.setId(id);
+    }
+
+    @Override
+    public void setNome(String nome) {
+        super.setNome(nome);
+    }
+
+    @Override
+    public String getCPF() {
+        return super.getCPF();
+    }
+
+    @Override
+    public int getId() {
+        return super.getId();
+    }
+
+    @Override
+    public String getName() {
+        return super.getName();
+    }
+
+    @Override
+    public String getNome() {
+        return super.getNome();
+    }
+    
+
 }

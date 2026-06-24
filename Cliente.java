@@ -75,6 +75,27 @@ public class Cliente extends Pessoa {
     public void setMinhas_consultas(ArrayList<Consulta> minhas_consultas) {
         this.minhas_consultas = minhas_consultas;
     }
+
+    @Override
+    public void setCPF(String CPF) {
+        super.setCPF(CPF);
+    }
+
+    @Override
+    public void setNome(String nome) {
+        super.setNome(nome);
+    }
+
+    @Override
+    public String getCPF() {
+        return super.getCPF();
+    }
+
+    @Override
+    public String getNome() {
+        return super.getNome();
+    }
+    
     
 
     
