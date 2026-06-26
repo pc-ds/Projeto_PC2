@@ -37,7 +37,7 @@ public class Cachorro extends AnimalVacina {
     }
 
     @Override
-    public Object getPorte() {
+    public Porte getPorte() {
         return super.getPorte();
     }
 
@@ -77,7 +77,7 @@ public class Cachorro extends AnimalVacina {
     }
 
     @Override
-    public void setPorte(Object porte) {
+    public void setPorte(Porte porte) {
         super.setPorte(porte);
     }
 

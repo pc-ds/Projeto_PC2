@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class AnimalVacina extends Animal {
+public class AnimalVacina extends Animal implements AdicionalPreco {
     private String raca;
     private ArrayList<Vacina> cartao;
     private Porte porte;
@@ -14,6 +14,15 @@ public class AnimalVacina extends Animal {
 
     public ArrayList<Vacina> getCartao() {
         return cartao;
+    }
+
+    public double adicionarConsulta(){
+        switch(porte){
+            case PEQUENO: return 50;
+            case MEDIO: return 75;
+            case GRANDE: return 100;
+            default: return 0;
+        }
     }
 
     @Override

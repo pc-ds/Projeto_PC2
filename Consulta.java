@@ -18,18 +18,22 @@ public class Consulta {
         this.veterinarioResp = veterinarioResp;
     }
 
-    public void calcularConsulta(){
+    public double calcularConsulta() {
         double valor = 0.0;
-        if(motivo == Motivo.EMERGENCIA) valor += 300;
-        else if(motivo == Motivo.CHECK_UP) valor += 120;
-        if(animal.getClass() == AnimalVacina.class){
-            if(animal.getPorte() == Porte.PEQUENO) valor += 50;
-            else if(animal.getPorte() == Porte.MEDIO) valor += 75;
-            else if(animal.getPorte() == Porte.GRANDE) valor += 100;
+
+        switch (motivo) {
+            case EMERGENCIA: valor += 300; break;
+            case CHECK_UP:   valor += 120; break;
+            case RETORNO:    valor += 80;  break;
         }
+
+        if (animal instanceof AdicionalPreco) {
+            valor += ((AdicionalPreco) animal).adicionarConsulta();
+        }
+
+        this.valorConsulta = valor;
         return valor;
     }
-
 
 
     public Status getSituacao() {
@@ -75,10 +79,10 @@ public class Consulta {
     public void setAnimal(Animal animal) {
         this.animal = animal;
     }
-    public bool getTaPago() {
+    public boolean getTaPago() {
         return taPago;
     }
-    public void setTaPago(bool taPago) {
+    public void setTaPago(boolean taPago) {
         this.taPago = taPago;
     } 
 

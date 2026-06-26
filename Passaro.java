@@ -1,16 +1,26 @@
 public class Passaro extends Animal {
-    private String especie;
+    private Especie especie;
     
-    public Passaro (String nome, int idade, Cliente dono, int idAnimal, float peso, String especie ) {
+    public Passaro (String nome, int idade, Cliente dono, int idAnimal, float peso, Especie especie ) {
         super(nome, idade, dono, idAnimal, peso);
         this.especie = especie;
     }
 
-    public String getEspecie() {
+    public double adicionarConsulta(){
+        switch(especie){
+            case COMUM: return 50;
+            case RARA: return 75;
+            case EPICA: return 100;
+            case LENDARIA: return 150;
+            default: return 0;
+        }
+    }
+
+    public Especie getEspecie() {
         return especie;
     }
 
-    public void setEspecie(String especie) {
+    public void setEspecie(Especie especie) {
         this.especie = especie;
     }
 

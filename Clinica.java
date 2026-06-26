@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Clinica {
@@ -23,10 +25,10 @@ public class Clinica {
     }
 
     // Função que calcula o total das consultas nao pagas de certo animal.
-    public double calcularTotal(int idAnimal){
+    public double calcularTotal(Animal animal){
         double valor = 0.0;
         for (Consulta c : consultas) {
-            if(c.getAnimal().getId() == idAnimal && c.getTaPago() == false){
+            if(c.getAnimal() == animal && c.getTaPago() == false){
                valor += c.getValorConsulta(); 
             }
         }
@@ -34,19 +36,36 @@ public class Clinica {
     }
 
     // Função que calcula o total das consultas nao pagas de todos seus animais de um cliente.
-    public double calcularTotal(int idCliente){
+    public double calcularTotal(Cliente cliente){
         double valor = 0.0;
         for (Consulta c : consultas) {
-            if(c.getAnimal().getDono().getCpf() == idCliente){
+            if(c.getAnimal().getDono() == cliente){
                valor += c.getValorConsulta(); 
             }
         }
         return valor;
     }
 
-    public void exibirRelatorio(String dinicial, String dfinal){
+   public void exibirRelatorio(String dinicial, String dfinal) {
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    
+    LocalDate inicio = LocalDate.parse(dinicial, formato);
+    LocalDate fim = LocalDate.parse(dfinal, formato);
 
+    for (Consulta c : consultas) {
+        LocalDate dataConsulta = LocalDate.parse(c.getData(), formato);
+
+        if (!dataConsulta.isBefore(inicio) && !dataConsulta.isAfter(fim)) {
+            System.out.println("Data: " + c.getData()
+                + " | Animal: " + c.getAnimal().getNome()
+                + " | Veterinário: " + c.getVeterinarioResp().getName()
+                + " | Motivo: " + c.getMotivo()
+                + " | Valor: R$" + c.getValorConsulta()
+                + " | Pago: " + (c.getTaPago() ? "Sim" : "Não")
+                + " | Status: " + c.getSituacao());
+        }
     }
+}
 
 
     public String getNome() {
