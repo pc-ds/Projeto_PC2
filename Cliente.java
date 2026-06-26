@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.bool;
 
 public class Cliente extends Pessoa {
     private int telefone;
@@ -21,18 +22,18 @@ public class Cliente extends Pessoa {
     
     public Consulta marcarConsulta (String data, Veterinario veterinarioResp, Animal animal, Motivo motivo) { // o cliente marca a consulta, o atendente confirma.
         Consulta c = new Consulta(data, veterinarioResp, animal, motivo); // ai adiciona em no array quando confirmar com o atendente
-        c.setSituacao() = status.Agendado;
+        c.setSituacao(status.Agendado);
         return c;
     }
 
     public void atualizarValorConsulta(Consulta consulta, double valor_pago) { // função para atualizar o valor da consulta se n for pago totalmente
         double total = 0.0;
         total = consulta.getValorConsulta() - valor_pago;
-        consulta.setValorConsulta() = total;
+        consulta.setValorConsulta(total);
     }
 
     public bool pagar (Consulta consulta, double valor_pago) { // essa função pode ser bool não? ai retorna se pagou ou não // a pessoa informa o valor pago e se for igual o da consulta ele vai retornar true
-        if(!consulta.gettaPago()){
+        if(!consulta.getTaPago()){
             if (valor_pago == consulta.getValorConsulta()) {
                 return true;
             }
@@ -45,11 +46,11 @@ public class Cliente extends Pessoa {
 
     public Consulta exibirPendente() {
         for (Consulta c :  this.getMinhas_consultas()) {
-            if (!c.gettaPago()) {
+            if (!c.getTaPago()) {
                 return c;
             }
         }
-        return "TUDO PAGO"; // tem que retornar nada;
+        return NULL;
     }
 
     public ArrayList<Animal> getAnimais() {

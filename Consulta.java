@@ -11,7 +11,7 @@ public class Consulta {
 
    
 
-    public Consulta(Motivo motivo, String data, Veterinario veterinarioResp, Animal animal){
+    public Consulta(String data, Veterinario veterinarioResp, Animal animal, Motivo motivo){
         this.motivo = motivo;
         this.data = data;
         this.animal = animal;

@@ -1,4 +1,4 @@
-import java.util.ArrayList
+import java.util.ArrayList;
 
 public class AnimalVacina extends Animal {
     private String raca;
