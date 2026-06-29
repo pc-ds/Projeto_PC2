@@ -46,27 +46,27 @@ public class Clinica {
         return valor;
     }
 
-   public void exibirRelatorio(String dinicial, String dfinal) {
-    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    
-    LocalDate inicio = LocalDate.parse(dinicial, formato);
-    LocalDate fim = LocalDate.parse(dfinal, formato);
+    public void exibirRelatorio(String dinicial, String dfinal) {
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        LocalDate inicio = LocalDate.parse(dinicial, formato);
+        LocalDate fim = LocalDate.parse(dfinal, formato);
 
-    for (Consulta c : consultas) {
-        LocalDate dataConsulta = LocalDate.parse(c.getData(), formato);
+        for (Consulta c : consultas) {
+            LocalDate dataConsulta = LocalDate.parse(c.getData(), formato);
 
-        if (!dataConsulta.isBefore(inicio) && !dataConsulta.isAfter(fim)) {
-            System.out.println("Data: " + c.getData()
-                + " | Animal: " + c.getAnimal().getNome()
-                + " | Veterinário: " + c.getVeterinarioResp().getName()
-                + " | Motivo: " + c.getMotivo()
-                + " | Valor: R$" + c.getValorConsulta()
-                + " | Pago: " + (c.getTaPago() ? "Sim" : "Não")
-                + " | Status: " + c.getSituacao());
+            if (!dataConsulta.isBefore(inicio) && !dataConsulta.isAfter(fim)) {
+                System.out.println("Data: " + c.getData()
+                    + " | Animal: " + c.getAnimal().getNome()
+                    + " | Veterinário: " + c.getVeterinarioResp().getName()
+                    + " | Motivo: " + c.getMotivo()
+                    + " | Valor: R$" + c.getValorConsulta()
+                    + " | Pago: " + (c.getTaPago() ? "Sim" : "Não")
+                    + " | Status: " + c.getSituacao());
+            }
         }
     }
-}
-
+    
 
     public String getNome() {
         return nome;

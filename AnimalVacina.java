@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class AnimalVacina extends Animal implements AdicionalPreco {
+public class AnimalVacina extends Animal implements Internavel {
     private String raca;
     private ArrayList<Vacina> cartao;
     private Porte porte;
@@ -9,91 +9,28 @@ public class AnimalVacina extends Animal implements AdicionalPreco {
         super(nome, idade, dono, idAnimal, peso);
         this.raca = raca;
         this.porte = porte;
-        cartao = new ArrayList<>();
+        this.cartao = new ArrayList<>();
     }
 
-    public ArrayList<Vacina> getCartao() {
-        return cartao;
-    }
-
-    public double adicionarConsulta(){
-        switch(porte){
+    @Override
+    public double adicionarPrecoConsulta() {
+        switch (porte) {
             case PEQUENO: return 50;
-            case MEDIO: return 75;
-            case GRANDE: return 100;
-            default: return 0;
+            case MEDIO:   return 75;
+            case GRANDE:  return 100;
+            default:      return 0;
         }
     }
 
     @Override
-    public Cliente getDono() {
-        return super.getDono();
+    public double adicionarPrecoInternacao(int dias) {
+        return dias * 75.0;
     }
 
-    @Override
-    public int getIdade() {
-        return super.getIdade();
-    }
-
-    @Override
-    public int getIdAnimal() {
-        return super.getIdAnimal();
-    }
-
-    @Override
-    public String getNome() {
-        return super.getNome();
-    }
-
-    @Override
-    public float getPeso() {
-        return super.getPeso();
-    }
-
-    public Porte getPorte() {
-        return porte;
-    }
-
-    public String getRaca() {
-        return raca;
-    }
-
-    public void setCartao(ArrayList<Vacina> cartao) {
-        this.cartao = cartao;
-    }
-
-    @Override
-    public void setDono(Cliente dono) {
-        super.setDono(dono);
-    }
-
-    @Override
-    public void setIdade(int idade) {
-        super.setIdade(idade);
-    }
-
-    @Override
-    public void setIdAnimal(int idAnimal) {
-        super.setIdAnimal(idAnimal);
-    }
-
-    @Override
-    public void setNome(String nome) {
-        super.setNome(nome);
-    }
-
-    @Override
-    public void setPeso(float peso) {
-        super.setPeso(peso);
-    }
-
-    public void setPorte(Porte porte) {
-        this.porte = porte;
-    }
-
-    public void setRaca(String raca) {
-        this.raca = raca;
-    }
-
-
+    public ArrayList<Vacina> getCartao() { return cartao; }
+    public void setCartao(ArrayList<Vacina> cartao) { this.cartao = cartao; }
+    public Porte getPorte() { return porte; }
+    public void setPorte(Porte porte) { this.porte = porte; }
+    public String getRaca() { return raca; }
+    public void setRaca(String raca) { this.raca = raca; }
 }
